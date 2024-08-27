@@ -1,0 +1,19 @@
+
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    dir: 'cf1'
+    args:
+      - 'functions'
+      - 'deploy'
+      - 'function-8'
+      - '--runtime'
+      - 'python39'
+      - '--region'
+      - 'us-central1'
+      - '--trigger-topic=cloud_function_trigger'
+      - '--entry-point'
+      - 'GCSDataRead'
+      - '--source'
+      - '.'
+options:
+    logging: CLOUD_LOGGING_ONLY
